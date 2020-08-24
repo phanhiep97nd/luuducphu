@@ -1,0 +1,47 @@
+﻿● Cách Thiet dinh Mysql có encoding là UTF8
+　・Thiet dinh code ki tu  la UTF
+　　 Chinh sua file [my.ini] nam ngay duoi directory   install 
+　　Sau khi thiet dinh xong thi khoi dong lai may 
+　　Noi dung thiet dinh se nhu duoi day , tuy nhien se phai thay doi voi nhung noi dung da duoc chi dinh tu truoc.
+　　[mysql]
+　　　default-character-set=utf8
+　　[mysqld]
+　　　default-character-set=utf8
+　　　skip-character-set-client-handshake
+　　　character-set-server=utf8
+　　　collation-server=utf8_general_ci
+　　　init-connect=SET NAMES utf8
+
+Sau khi thiet dinh sau phai reset lai service của MySQL
+
+
+●Ve thiet dinh cua Mysql
+	Voi nhung thiet dinh khong tim thay trong file my.ini thi cu copy vao la OK.
+	Phuong phap xac nhan xem thiet dinh co dung khong nhu sau :
+	Ket noi voi Mysql, roi thuc hien command duoi day, Neu noi dung hien thi phan ket qua la dung tuc la OK (Ngoai ra , gia tri thiet dinh duoc hien thi thi thiet dinh gia tri nao cung duoc)
+
+	・Comman：mysql -uxxx -pxxx (chu y xxx la user va pass cua MySQL)
+	　show variables like 'character%';
+	・Ket qua：
+	Variable_name | Value
+	-----------------------------------
+	character_set_client | utf8
+	character_set_connection | utf8
+	character_set_database | utf8
+	character_set_results | utf8
+	character_set_server | utf8
+	character_set_system | utf8
+
+	・command：
+	show variables like 'collation%';
+	・Ket qua：
+	Variable_name | Value
+	-----------------------------------
+	collation_connection | utf8_general_ci
+	collation_database | utf8_general_ci
+	collation_server | utf8_general_ci
+
+
+
+
+
